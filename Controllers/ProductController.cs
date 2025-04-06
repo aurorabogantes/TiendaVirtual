@@ -13,10 +13,10 @@ namespace PruebasUnitarias.Controllers
         };
 
         // Lista estática de productos
-        private static List<Product> products = new List<Product>
+        public static List<Product> products = new List<Product>
         {
-            new Product { Name = "Producto 1", Description = "Descripción1", Price = 10 },
-            new Product { Name = "Producto 2", Description = "Descripción2", Price = 15 }
+            new Product { Id = 1, Name = "Producto 1", Description = "Descripción1", Price = 10 },
+            new Product { Id = 2, Name = "Producto 2", Description = "Descripción2", Price = 15 }
         };
 
         // Acción GET para mostrar productos y mensajes de contacto
@@ -45,6 +45,8 @@ namespace PruebasUnitarias.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.Id = products.Count > 0 ? products[^1].Id + 1 : 1;
+                // Asignar un ID único al producto
                 products.Add(product);
                 return RedirectToAction("Index");
             }
