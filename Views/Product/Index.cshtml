@@ -1,0 +1,46 @@
+﻿@model PruebasUnitarias.Models.IndexViewModel
+
+<h2>Products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Contact Messages</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model.ContactMessages)
+        {
+                <tr>
+                    <td>@message.Name</td>
+                    <td>@message.Email</td>
+                    <td>@message.Message</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")">Create a Product</a>
+<a href="@Url.Action("Contact")">Contact Us</a>
