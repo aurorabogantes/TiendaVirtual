@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual", "TiendaVirtual.csproj", "{347F957F-321D-4FA6-840D-E9274B30429E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{3F55F83F-B210-4B2D-9FAC-C7316F1B7A98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "..\UnitTest\UnitTest.csproj", "{0EC1AD0A-FEED-4524-8CE2-6D6B363231AE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{347F957F-321D-4FA6-840D-E9274B30429E} = {347F957F-321D-4FA6-840D-E9274B30429E}
 	EndProjectSection
@@ -20,10 +20,10 @@ Global
 		{347F957F-321D-4FA6-840D-E9274B30429E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{347F957F-321D-4FA6-840D-E9274B30429E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{347F957F-321D-4FA6-840D-E9274B30429E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F55F83F-B210-4B2D-9FAC-C7316F1B7A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F55F83F-B210-4B2D-9FAC-C7316F1B7A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F55F83F-B210-4B2D-9FAC-C7316F1B7A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F55F83F-B210-4B2D-9FAC-C7316F1B7A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC1AD0A-FEED-4524-8CE2-6D6B363231AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC1AD0A-FEED-4524-8CE2-6D6B363231AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC1AD0A-FEED-4524-8CE2-6D6B363231AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC1AD0A-FEED-4524-8CE2-6D6B363231AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
