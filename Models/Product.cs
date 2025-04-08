@@ -1,4 +1,6 @@
-﻿namespace PruebasUnitarias.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PruebasUnitarias.Models
 {
     public class Product
     {

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PruebasUnitarias.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PruebasUnitarias.Controllers
 {
@@ -43,9 +44,14 @@ namespace PruebasUnitarias.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
+            if (product.Description != null && product.Description.Length > 500)
+            {
+                ModelState.AddModelError("Description", "La descripción no puede tener más de 500 caracteres.");
+            }
+
             if (ModelState.IsValid)
             {
-                product.Id = products.Count > 0 ? products[^1].Id + 1 : 1;
+                product.Id = products.Any() ? products.Max(p => p.Id) + 1 : 1;
                 // Asignar un ID único al producto
                 products.Add(product);
                 return RedirectToAction("Index");
@@ -67,7 +73,8 @@ namespace PruebasUnitarias.Controllers
             if (ModelState.IsValid)
             {
                 contactMessages.Add(contactMessage);
-                return RedirectToAction("Index");
+                TempData["SuccessMessage"] = "El formulario de contacto se envió correctamente.";
+                //return RedirectToAction("Index");
             }
             return View(contactMessage);
         }

@@ -1,6 +1,17 @@
 ﻿@model PruebasUnitarias.Models.Product
+@using Microsoft.AspNetCore.Mvc.ModelBinding
 
 <h2>Agregar Producto</h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+	foreach (var modelError in ViewData.ModelState["Description"]?.Errors ?? new ModelErrorCollection())
+	{
+				<div style="color: white; background-color: red; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+			@modelError.ErrorMessage
+				</div>
+	}
+}
 
 <form asp-action="Create" method="post">
 	<label for="Name">Nombre:</label>
