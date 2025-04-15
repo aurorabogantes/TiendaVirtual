@@ -59,6 +59,57 @@ namespace PruebasUnitarias.Controllers
             return View(product);
         }
 
+        // Acción GET para cargar la vista de actualización de un producto
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            // Buscar el producto existente por su ID
+            var existingProduct = products.FirstOrDefault(p => p.Id == id);
+
+            if (existingProduct == null)
+            {
+                // Si no se encuentra el producto, devolver un error 404
+                return NotFound($"El producto con ID {id} no existe.");
+            }
+
+            // Pasar el producto encontrado a la vista
+            return View(existingProduct);
+        }
+
+        // Acción POST para actualizar un producto existente
+        [HttpPost]
+        public IActionResult Update(Product updatedProduct)
+        {
+            // Buscar el producto existente por su ID
+            var existingProduct = products.FirstOrDefault(p => p.Id == updatedProduct.Id);
+
+            if (existingProduct == null)
+            {
+                // Si no se encuentra el producto, devolver un error 404
+                return NotFound($"El producto con ID {updatedProduct.Id} no existe.");
+            }
+
+            // Validar el modelo
+            if (updatedProduct.Description != null && updatedProduct.Description.Length > 500)
+            {
+                ModelState.AddModelError("Description", "La descripción no puede tener más de 500 caracteres.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(updatedProduct);
+            }
+
+            // Actualizar las propiedades del producto existente
+            existingProduct.Name = updatedProduct.Name;
+            existingProduct.Description = updatedProduct.Description;
+            existingProduct.Price = updatedProduct.Price;
+
+            // Redirigir al índice después de la actualización
+            return RedirectToAction("Index");
+        }
+
+
         // Acción GET para mostrar el formulario de contacto
         [HttpGet]
         public IActionResult Contact()
